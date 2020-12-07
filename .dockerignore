@@ -1,0 +1,7 @@
+node_modules
+e2e
+.git
+.gitignore
+.github
+.editorconfig
+

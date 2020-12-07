@@ -17,7 +17,7 @@ import { AboutComponent } from './pages/about-page/components/about/about.compon
     AboutComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     SharedModule
   ],
   providers: [],
