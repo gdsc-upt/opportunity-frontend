@@ -50,7 +50,6 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
         script: ls -al
 #        script: sudo /opt/deploy/_deploy.sh /home/docker/opportUNITY-frontend
