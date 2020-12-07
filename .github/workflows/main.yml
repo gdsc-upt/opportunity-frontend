@@ -48,8 +48,7 @@ jobs:
     - name: Pull & run image on server
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
+        host: percic.live
         USERNAME: ${{ secrets.USERNAME }}
         KEY: ${{ secrets.SSHKEY }}
-        script: ls -al
-#        script: sudo /opt/deploy/_deploy.sh /home/docker/opportUNITY-frontend
+        script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend
