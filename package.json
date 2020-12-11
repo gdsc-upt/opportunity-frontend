@@ -25,6 +25,7 @@
     "@angular/platform-server": "~11.0.3",
     "@angular/router": "~11.0.3",
     "@nguniversal/express-engine": "^11.0.1",
+    "bootstrap": "^5.0.0-beta1",
     "express": "^4.15.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
