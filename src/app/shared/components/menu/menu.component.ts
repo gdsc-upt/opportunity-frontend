@@ -7,6 +7,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
+  menuItems = [
+    {
+      id: 1,
+      name: 'OpportUNITY',
+      route:'/opportUNITY'
+    },
+
+    {
+      id: 2,
+      name: 'Despre',
+      route: '/despre'
+    },
+
+    {
+      id: 3,
+      name: 'Vreau să mă implic',
+      route: '/vreau_sa_ma_implic'
+    },
+
+    {
+      id: 4,
+      name: 'Echipa',
+      route: '/echipa'
+    },
+
+    {
+      id: 5,
+      name: 'Contact',
+      route: '/contact'
+    }
+
+  ];
+
+
   constructor() { }
 
   ngOnInit(): void {
