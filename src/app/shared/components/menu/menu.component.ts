@@ -7,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 	public menuItems = [
-		{ id: 1, name: 'OpportUNITY', route: '/opportUNITY' },
-		{ id: 2, name: 'Despre', route: '/despre' },
-		{ id: 3, name: 'Vreau să mă implic', route: '/vreau_sa_ma_implic' },
-		{ id: 4, name: 'Echipa', route: '/echipa' },
-		{ id: 5, name: 'Contact', route: '/contact' },
+		{ id: 1, name: 'OpportUNITY', route: '' },
+		{ id: 2, name: 'Despre', route: '' },
+		{ id: 3, name: 'Oportunitati', route: '/oportunitati' },
+		{ id: 4, name: 'Adauga oportunitate', route: '/adauga-oportunitate' },
 	];
 
 	constructor() {}
