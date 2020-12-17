@@ -1,7 +1,17 @@
 <nav class="sidebar">
-  <ul>
-    <li *ngFor="let menuItem of menuItems">
-      <a href="{{menuItem.route}}">{{menuItem.name}}</a>
-    </li>
-  </ul>
+    <ul>
+        <li *ngFor="let item of menuItems">
+            <a *ngIf="item.type === 'ExternalLink'"
+               href="{{item.route}}"
+            >
+                {{item.name}}
+            </a>
+
+            <a *ngIf="item.type === 'InternalLink'"
+               [routerLink]=item.route
+               [routerLinkActive]="['active']">
+                {{item.name}}
+            </a>
+        </li>
+    </ul>
 </nav>
