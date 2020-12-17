@@ -1,12 +1,12 @@
 @import 'variables.scss';
 
 @mixin purple-orange-gradient {
-    background: linear-gradient(45deg, rgba($purple-1, 0.6), rgba($orange-2, 0.6));
+    background: linear-gradient(30deg, rgba($purple-1, 0.6), rgba($orange-2, 0.6));
 
 }
 
 @mixin gray-white-gradient {
-    background: linear-gradient(45deg, $gray-1, $white);
+    background: linear-gradient(120deg, $gray-1, $white);
 }
 
 @mixin shadow {
