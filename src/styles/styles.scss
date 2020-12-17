@@ -8,12 +8,12 @@
 
 html,
 body {
-	font-family: Nunito, serif;
-    color: $dark-1;
-    font-size: 16px;
     @include gray-white-gradient;
+    font-family: Nunito, serif;
+    font-size: 16px;
+    color: $dark-1;
 }
 
 .heading {
-	font-family: Inter, serif;
+    font-family: Inter, serif;
 }
