@@ -52,13 +52,8 @@ const routes = [
         OpportunityPageComponent,
         HelpPageComponent,
     ],
-    imports: [
-        BrowserModule.withServerTransition({appId: 'serverApp'}),
-        RouterModule.forRoot(routes),
-        SharedModule,
-    ],
+    imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), RouterModule.forRoot(routes), SharedModule],
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

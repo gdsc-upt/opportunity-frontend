@@ -1,68 +1,70 @@
 html {
-	min-height: 100%;
-	background-image: linear-gradient(to right top, #8e44ad 0%, #3498db 100%);
+    min-height: 100%;
+    background-image: linear-gradient(to right top, #8E44AD 0%, #3498DB 100%);
 }
 
 nav {
-	max-width: 1000px;
-	mask-image: linear-gradient(
-		90deg,
-		rgba(255, 255, 255, 0) 0%,
-		#ffffff 25%,
-		#ffffff 75%,
-		rgba(255, 255, 255, 0) 100%
-	);
-	margin: 0 auto;
+    max-width: 1000px;
+    mask-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        #FFF 25%,
+        #FFF 75%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    margin: 0 auto;
 }
 
 nav ul {
-	text-align: center;
-	background: linear-gradient(
-		90deg,
-		rgba(255, 255, 255, 0) 0%,
-		rgba(255, 255, 255, 0.2) 25%,
-		rgba(255, 255, 255, 0.2) 75%,
-		rgba(255, 255, 255, 0) 100%
-	);
-	box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 25%,
+        rgba(255, 255, 255, 0.2) 75%,
+        rgba(255, 255, 255, 0) 100%
+    );
 }
 
 nav ul li {
-	display: inline-block;
+    display: inline-block;
 }
 
 nav ul li a {
-	padding: 18px;
-	color: rgba(0, 35, 122, 0.5);
-	font-size: 15px;
-	text-decoration: none;
-	display: block;
+    font-size: 15px;
+    color: rgba(0, 35, 122, 0.5);
+    text-decoration: none;
+    display: block;
+    padding: 18px;
 }
 
 nav ul li a:hover {
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-	background: rgba(255, 255, 255, 0.1);
-	color: rgba(0, 35, 122, 0.7);
+    color: rgba(0, 35, 122, 0.7);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (max-width: 700px) {
-	.sidebar {
-		width: 100%;
-		height: auto;
-		position: relative;
-	}
-	.sidebar a {
-		float: left;
-	}
-	div.content {
-		margin-left: 0;
-	}
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    div.content {
+        margin-left: 0;
+    }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
 @media screen and (max-width: 400px) {
-	.sidebar a {
-		text-align: center;
-		float: none;
-	}
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
 }
