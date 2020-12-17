@@ -31,7 +31,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 CTA - call to action  
 UI - User Interface  
 API - Application Programming Interface  
-GA - general availability / general acceptance  
-Sentry - "E un serviciu care iţi zice când şi ce a crăpat pe site" - Dan Percic ( https://sentry.io/welcome/ )  
+GA - Google Analytics   
+Sentry - "E un serviciu care iţi zice când şi ce a crăpat pe site" - Dan Percic [Sentry](https://sentry.io/welcome/)  
 JSON - JavaScript Object Notation (open standard file format)  
 
