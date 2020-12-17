@@ -16,7 +16,8 @@ button {
     border: none;
     cursor: pointer;
     @include shadow;
-    transition: transform 0.2s;
+    transition: transform 0.6s;
+    box-shadow: 0 13px 27px 0 rgba(116, 49, 215, 0.25);
 
     &.small {
         height: 40px;
@@ -25,6 +26,6 @@ button {
     }
 
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-5px);
     }
 }
