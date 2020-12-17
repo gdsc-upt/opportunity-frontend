@@ -14,46 +14,51 @@ import { OpportunityPageComponent } from './pages/opportunity-page/opportunity-p
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 
 const routes = [
-	{
-		path: '',
-		component: AboutPageComponent,
-	},
-	{
-		path: 'oportunitati',
-		component: OpportunitiesListPageComponent,
-	},
-	{
-		path: 'oportunitati/:id',
-		component: OpportunityPageComponent,
-	},
-	{
-		path: 'adauga-oportunitate',
-		component: AddOpportunityPageComponent,
-	},
-	{
-		path: 'ajut',
-		component: HelpPageComponent,
-	},
-	{
-		path: 'adauga-oportunitate',
-		component: AddOpportunityPageComponent,
-	},
+    {
+        path: '',
+        component: AboutPageComponent,
+    },
+    {
+        path: 'oportunitati',
+        component: OpportunitiesListPageComponent,
+    },
+    {
+        path: 'oportunitati/:id',
+        component: OpportunityPageComponent,
+    },
+    {
+        path: 'adauga-oportunitate',
+        component: AddOpportunityPageComponent,
+    },
+    {
+        path: 'ajut',
+        component: HelpPageComponent,
+    },
+    {
+        path: 'adauga-oportunitate',
+        component: AddOpportunityPageComponent,
+    },
 ];
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		AboutPageComponent,
-		TeamComponent,
-		BannerComponent,
-		AboutComponent,
-		AddOpportunityPageComponent,
-		OpportunitiesListPageComponent,
-		OpportunityPageComponent,
-		HelpPageComponent,
-	],
-	imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), RouterModule.forRoot(routes), SharedModule],
-	providers: [],
-	bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        AboutPageComponent,
+        TeamComponent,
+        BannerComponent,
+        AboutComponent,
+        AddOpportunityPageComponent,
+        OpportunitiesListPageComponent,
+        OpportunityPageComponent,
+        HelpPageComponent,
+    ],
+    imports: [
+        BrowserModule.withServerTransition({appId: 'serverApp'}),
+        RouterModule.forRoot(routes),
+        SharedModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
