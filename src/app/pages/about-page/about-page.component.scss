@@ -1,0 +1,5 @@
+@import '../../../styles/mixins';
+
+.gradient-test {
+    @include purple-orange-gradient;
+}

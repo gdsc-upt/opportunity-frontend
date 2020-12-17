@@ -1,0 +1,30 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
+button {
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    width: 250px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: $purple-1;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    @include shadow;
+    transition: transform 0.2s;
+
+    &.small {
+        height: 40px;
+        width: 200px;
+        font-size: 13px;
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}

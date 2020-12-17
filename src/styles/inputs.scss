@@ -1,0 +1,16 @@
+@import 'variables.scss';
+
+input {
+    font-family: Nunito, sans-serif;
+    font-size: 16px;
+    color: $dark-1;
+    border-radius: 4px;
+    height: 50px;
+    outline: none;
+    border: 1px solid $gray-2;
+    padding: 0 15px;
+
+    &:focus {
+        border: 1px solid rgba($dark-1, 0.6);
+    }
+}

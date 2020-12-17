@@ -1,10 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Inter:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'buttons.scss';
+@import 'inputs.scss';
 
 html,
 body {
 	font-family: Nunito, serif;
+    color: $dark-1;
+    font-size: 16px;
+    @include gray-white-gradient;
 }
 
 .heading {
