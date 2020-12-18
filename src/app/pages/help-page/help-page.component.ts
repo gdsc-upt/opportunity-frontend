@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./help-page.component.scss'],
 })
 export class HelpPageComponent implements OnInit {
-    constructor() {}
+    public constructor() {}
 
     public ngOnInit(): void {}
 }

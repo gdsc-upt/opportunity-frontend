@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
         },
     ];
 
-    constructor() {}
+    public constructor() {}
 
     public ngOnInit(): void {}
 }

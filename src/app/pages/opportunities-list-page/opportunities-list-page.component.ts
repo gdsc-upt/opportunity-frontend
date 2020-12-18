@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./opportunities-list-page.component.scss'],
 })
 export class OpportunitiesListPageComponent implements OnInit {
-    constructor() {}
+    public constructor() {}
 
     public ngOnInit(): void {}
 }
