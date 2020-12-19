@@ -2,7 +2,7 @@ name: OpportUNITY Website
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, dev ]
 
 jobs:
   build:
@@ -28,7 +28,7 @@ jobs:
         with:
           secrets: GIT_AUTH_TOKEN=${{ secrets.CR_PAT }}
           push: true
-          tags: ghcr.io/dsc-upt/opportunity-frontend:latest
+          tags: ghcr.io/dsc-upt/opportunity-frontend-${GITHUB_REF##*/}:latest
 
   deploy:
     needs: build
@@ -38,6 +38,6 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: timis.tech
-          USERNAME: ${{ secrets.USERNAME }}
-          KEY: ${{ secrets.SSH_KEY }}
-          script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend-${GITHUB_REF##*/}
