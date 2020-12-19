@@ -19,6 +19,7 @@ import { CoreModule } from './core/core.module';
 import { NewsletterComponent } from './pages/about-page/components/newsletter/newsletter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { ContactComponent } from './pages/about-page/components/contact/contact.component';
 
 const routes = [
     {
@@ -61,6 +62,7 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         OpportunityPageComponent,
         HelpPageComponent,
         NewsletterComponent,
+        ContactComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -4,14 +4,13 @@ import { MenuComponent } from './components/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './components/button/button.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ContactComponent } from './components/contact/contact.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const matImports = [MatProgressSpinnerModule];
 
 @NgModule({
-    declarations: [MenuComponent, ContactComponent, ButtonComponent],
-    imports: [CommonModule, RouterModule, ...matImports],
-    exports: [MenuComponent, ContactComponent, ButtonComponent]
+    declarations: [MenuComponent, ButtonComponent],
+    imports: [CommonModule, RouterModule, ...matImports, ReactiveFormsModule],
+    exports: [MenuComponent, ButtonComponent],
 })
-export class SharedModule {
-}
+export class SharedModule {}

@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .semi-bold {
     font-weight: 600;
 }
@@ -21,4 +23,15 @@
 .flex-col {
     display: flex;
     flex-direction: column;
+}
+
+.form-submitted {
+    display: flex;
+    align-items: center;
+    height: 45px;
+
+    mat-icon {
+        color: $purple-1;
+        margin-right: 10px;
+    }
 }

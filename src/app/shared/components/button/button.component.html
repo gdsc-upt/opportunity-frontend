@@ -1,4 +1,4 @@
-<button [class.small]="small" (click)="action.emit()" [disabled]="disabled || loading">
+<button [class.small]="small" (click)="action.emit()" [disabled]="disabled || loading" [class.full-width]="fullWidth">
     <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
     {{ label }}
 </button>

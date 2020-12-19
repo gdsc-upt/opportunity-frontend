@@ -1,5 +1,13 @@
 @import '../../../../styles/variables.scss';
 
+.full-width {
+    width: 100%;
+}
+
+button {
+    position: relative;
+}
+
 mat-spinner {
     position: absolute;
     left: 10px;

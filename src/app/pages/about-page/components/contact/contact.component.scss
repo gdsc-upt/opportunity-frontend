@@ -1,0 +1,30 @@
+@import 'styles/styles';
+
+.gradient-bg {
+    display: flex;
+    border-radius: 10px;
+    @include purple-orange-gradient;
+
+    > div {
+        margin: 50px;
+    }
+}
+
+.heading {
+    white-space: nowrap;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 992px) {
+    .gradient-bg {
+        flex-direction: column;
+
+        > div:last-child {
+            margin-top: 0;
+        }
+    }
+}

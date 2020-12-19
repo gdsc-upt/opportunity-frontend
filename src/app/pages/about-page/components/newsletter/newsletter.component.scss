@@ -1,5 +1,4 @@
-@import '../../../../../styles/mixins';
-@import '../../../../../styles/variables';
+@import 'styles/styles';
 
 .gradient-bg {
     display: flex;
@@ -9,22 +8,10 @@
     border-radius: 10px;
     @include purple-orange-gradient;
     padding: 50px calc(100vw / 6);
-    position: relative;
 }
 
 .heading, .subheading {
     text-align: center;
-}
-
-.form-submitted {
-    display: flex;
-    align-items: center;
-    height: 45px;
-
-    mat-icon {
-        color: $purple-1;
-        margin-right: 10px;
-    }
 }
 
 input {
