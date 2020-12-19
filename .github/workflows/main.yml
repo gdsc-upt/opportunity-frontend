@@ -37,7 +37,7 @@ jobs:
       - name: Pull & run image on server
         uses: appleboy/ssh-action@master
         with:
-          host: timish.tech
+          host: timis.tech
           USERNAME: ${{ secrets.USERNAME }}
           KEY: ${{ secrets.SSH_KEY }}
           script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend
