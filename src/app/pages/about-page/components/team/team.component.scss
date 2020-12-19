@@ -1,89 +1,82 @@
-@import "../../../../../styles/styles";
+@import 'styles/styles';
 
-.team{
+.team {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
-.title{
-    font-size: 36px;
-    font-weight: 600;
+.title-padding {
     padding-bottom: 5%;
 }
 
-.description{
-    text-align: center;
-    width: 840px;
+.description {
     font-size: 20px;
+    text-align: center;
+    width: 80%;
 }
 
-.carousel{
+.carousel {
     position: relative;
-    padding-top: 50px;
     justify-content: space-around;
+    padding-top: 50px;
 }
 
-.dots{
-    margin: auto;
-    position: absolute;
+.dots {
+    background-image: url('/assets/images/Dots.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.dots img{
-    width: 100%;
-}
-
-.images{
+.images {
     position: relative;
     display: flex;
     justify-content: space-around;
-    padding-top: 5%;
+    padding: 5% 0;
 }
 
-.img{
+.member {
     width: 10%;
     height: 10%;
     padding-top: 1.25%;
 }
 
-.img img{
+img {
     width: 100%;
 }
 
-.volunteer{
+.volunteer {
     width: 13%;
     height: 13%;
 }
 
-.volunteer img{
-    width: 100%;
-}
-
-.arrow{
+.arrow {
     padding-top: 5.5%;
 }
 
-.arrow mat-icon{
+.arrow mat-icon {
     font-size: 60px;
     color: $purple-1;
 }
 
-.description2{
-    margin-top: 5%;
+.join-us {
+    font-size: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 24px;
 }
 
-.description2 mat-icon{
-    padding-bottom: 2%;
-    color: $orange-1;
+.join-us mat-icon {
     font-weight: bold;
+    color: $orange-1;
+    padding-bottom: 2%;
 }
 
-.join{
+.join {
     color: $purple-1;
+}
+
+.component {
+    padding-bottom: 150px;
 }
