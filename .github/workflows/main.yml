@@ -8,6 +8,8 @@ jobs:
   build:
     id: build
     runs-on: ubuntu-latest
+    outputs:
+      BRANCH: ${{ steps.extract_branch.outputs.branch }}
     steps:
       - uses: actions/checkout@v2
 
@@ -45,7 +47,7 @@ jobs:
       - name: Pull & run image on server
         uses: appleboy/ssh-action@master
         env:
-          BRANCH: ${{ jobs.build.steps.extract_branch.outputs.branch }}
+          BRANCH: ${{ needs.build.outputs.BRANCH }}
         with:
           host: timis.tech
           username: ${{ secrets.USERNAME }}
