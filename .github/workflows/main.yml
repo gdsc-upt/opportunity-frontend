@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-    id: build
     runs-on: ubuntu-latest
     outputs:
       BRANCH: ${{ steps.extract_branch.outputs.branch }}
