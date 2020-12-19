@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Inter:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import 'variables.scss';
 @import 'mixins.scss';
 @import 'buttons.scss';
@@ -8,6 +9,7 @@
 
 html,
 body {
+    height: 100%;
     @include gray-white-gradient;
     font-family: Nunito, serif;
     font-size: 16px;

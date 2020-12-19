@@ -12,6 +12,8 @@ import { AddOpportunityPageComponent } from './pages/add-opportunity-page/add-op
 import { OpportunitiesListPageComponent } from './pages/opportunities-list-page/opportunities-list-page.component';
 import { OpportunityPageComponent } from './pages/opportunity-page/opportunity-page.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes = [
     {
@@ -52,7 +54,13 @@ const routes = [
         OpportunityPageComponent,
         HelpPageComponent,
     ],
-    imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), RouterModule.forRoot(routes), SharedModule],
+    imports: [
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        RouterModule.forRoot(routes),
+        SharedModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
