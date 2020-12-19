@@ -1,0 +1,89 @@
+@import "../../../../../styles/styles";
+
+.team{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-size: 36px;
+    font-weight: 600;
+    padding-bottom: 5%;
+}
+
+.description{
+    text-align: center;
+    width: 840px;
+    font-size: 20px;
+}
+
+.carousel{
+    position: relative;
+    padding-top: 50px;
+    justify-content: space-around;
+}
+
+.dots{
+    margin: auto;
+    position: absolute;
+}
+
+.dots img{
+    width: 100%;
+}
+
+.images{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 5%;
+}
+
+.img{
+    width: 10%;
+    height: 10%;
+    padding-top: 1.25%;
+}
+
+.img img{
+    width: 100%;
+}
+
+.volunteer{
+    width: 13%;
+    height: 13%;
+}
+
+.volunteer img{
+    width: 100%;
+}
+
+.arrow{
+    padding-top: 5.5%;
+}
+
+.arrow mat-icon{
+    font-size: 60px;
+    color: $purple-1;
+}
+
+.description2{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.description2 mat-icon{
+    padding-bottom: 2%;
+    color: $orange-1;
+    font-weight: bold;
+}
+
+.join{
+    color: $purple-1;
+}
