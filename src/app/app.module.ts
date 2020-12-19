@@ -14,6 +14,7 @@ import { OpportunityPageComponent } from './pages/opportunity-page/opportunity-p
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { CoreModule } from './core/core.module';
 
 const routes = [
     {
@@ -58,6 +59,7 @@ const routes = [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
         RouterModule.forRoot(routes),
         SharedModule,
+        CoreModule,
         BrowserAnimationsModule,
         MatIconModule,
     ],

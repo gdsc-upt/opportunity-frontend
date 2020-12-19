@@ -1,0 +1,14 @@
+{
+  "/api/*": {
+    "target": "https://opportunity.timis.tech",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/media/*": {
+    "target": "https://opportunity.timis.tech",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}
