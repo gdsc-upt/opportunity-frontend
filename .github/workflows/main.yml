@@ -50,7 +50,7 @@ jobs:
           tags: ghcr.io/dsc-upt/opportunity-frontend:latest
 
   deploy:
-    needs: push
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Pull & run image on server
