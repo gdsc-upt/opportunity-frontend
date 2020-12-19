@@ -1,7 +1,13 @@
 node_modules
+dist
+proxy
 e2e
+README.md
+LICENCE
 .git
 .gitignore
 .github
 .editorconfig
-
+.eslintrc.json
+.prettierrc
+.stylelintrc
