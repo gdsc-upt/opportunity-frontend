@@ -8,47 +8,59 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    - name: Setup Node.js 14.15
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.15
+      - name: Setup Node.js 14.15
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.15
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-#    - name: Lint
-#      run: npm run lint
-#
-#    - name: Run tests
-#      run: npm run test-ci
+      - name: Build
+        run: npm run build:ssr --unsafe-perm
 
-    - name: Build
-      run: npm run build:ssr --unsafe-perm
+  push:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
 
-    - name: Push to GitHub Packages
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-        registry: docker.pkg.github.com
-        repository: dsc-upt/opportunity-frontend/opportunity-frontend
-        tag_with_sha: true
-        tags: latest
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-    - name: Pull & run image on server
-      uses: appleboy/ssh-action@master
-      with:
-        host: percic.live
-        USERNAME: ${{ secrets.USERNAME }}
-        KEY: ${{ secrets.SSHKEY }}
-        script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend
+      - name: Login to GitHub Packages Docker Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Build and push to GitHub Packages
+        uses: docker/build-push-action@v2
+        with:
+          secrets: GIT_AUTH_TOKEN=${{ secrets.CR_PAT }}
+          push: true
+          tags: ghcr.io/dsc-upt/opportunity-frontend:latest
+
+  deploy:
+    needs: push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull & run image on server
+        uses: appleboy/ssh-action@master
+        with:
+          host: timish.tech
+          USERNAME: ${{ secrets.USERNAME }}
+          KEY: ${{ secrets.SSH_KEY }}
+          script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend
