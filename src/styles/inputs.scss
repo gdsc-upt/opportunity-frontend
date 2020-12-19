@@ -4,13 +4,37 @@ input {
     font-family: Nunito, sans-serif;
     font-size: 16px;
     color: $dark-1;
-    height: 50px;
+    height: 45px;
+    min-height: 45px;
     padding: 0 15px;
     border: 1px solid $gray-2;
     border-radius: 4px;
     outline: none;
+    box-sizing: border-box;
 
     &:focus {
         border: 1px solid rgba($dark-1, 0.6);
     }
+
+    &.other {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $gray-2;
+        font-size: 14px;
+        min-height: 30px;
+        height: 30px;
+        padding: 0 5px;
+    }
 }
+
+mat-checkbox label {
+    font-family: Nunito, sans-serif;
+    font-size: 14px;
+    color: $dark-1;
+}
+
+.stacked-form {
+    display: flex;
+    flex-direction: column;
+}
+

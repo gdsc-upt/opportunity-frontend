@@ -1,0 +1,10 @@
+@import '../../../../styles/variables.scss';
+
+mat-spinner {
+    position: absolute;
+    left: 10px;
+}
+
+::ng-deep.mat-spinner circle {
+    stroke: $white;
+}

@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Inter:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import 'theme.scss';
 @import 'variables.scss';
 @import 'mixins.scss';
 @import 'buttons.scss';
 @import 'inputs.scss';
+@import 'texts.scss';
+@import 'utils.scss';
 
 html,
 body {
     @include gray-white-gradient;
     font-family: Nunito, serif;
-    font-size: 16px;
+    font-size: 14px;
     color: $dark-1;
     height: 100%;
 }
 
-.heading {
-    font-family: Inter, serif;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 44px;
+body {
+    padding: 0 calc(100vw / 12);
 }
 
 .col-6 {

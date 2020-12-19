@@ -14,7 +14,11 @@ import { OpportunityPageComponent } from './pages/opportunity-page/opportunity-p
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { CoreModule } from './core/core.module';
+import { NewsletterComponent } from './pages/about-page/components/newsletter/newsletter.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const routes = [
     {
@@ -43,6 +47,8 @@ const routes = [
     },
 ];
 
+const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -54,6 +60,7 @@ const routes = [
         OpportunitiesListPageComponent,
         OpportunityPageComponent,
         HelpPageComponent,
+        NewsletterComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -61,7 +68,9 @@ const routes = [
         SharedModule,
         CoreModule,
         BrowserAnimationsModule,
-        MatIconModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ...matImports,
     ],
     providers: [],
     bootstrap: [AppComponent],

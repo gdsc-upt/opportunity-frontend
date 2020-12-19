@@ -13,10 +13,12 @@ button {
     width: 250px;
     height: 50px;
     cursor: pointer;
-    transition: transform 0.6s;
+    transition: transform 0.6s, opacity 0.3s;
     border: none;
     border-radius: 4px;
     background-color: $purple-1;
+    outline: none;
+    box-sizing: border-box;
 
     &.small {
         font-size: 13px;
@@ -24,7 +26,12 @@ button {
         height: 40px;
     }
 
-    &:hover {
+    &:not(:disabled):hover {
         transform: translateY(-5px);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: default;
     }
 }

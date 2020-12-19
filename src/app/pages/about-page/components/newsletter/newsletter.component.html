@@ -1,0 +1,45 @@
+<div class="gradient-bg">
+    <div class="heading mb-40">Cauți oportunități de dezvoltare și implicare în comunitate?</div>
+
+    <div class="subheading mb-40">OpportUNITY este pentru tine. Lasă-ne o adresă de email pentru a fi primul care află
+        de
+        lansarea catalogului de oportunități.
+    </div>
+
+    <input *ngIf="!formSubmitted" placeholder="Email" [matMenuTriggerFor]="popup"
+           [value]="newsletterForm.get('email').value"
+           (onMenuOpen)="popupOpened()"/>
+
+    <div *ngIf="formSubmitted" class="form-submitted">
+        <mat-icon>check_circle</mat-icon>
+        <div class="subheading semi-bold">
+            Mulțumim! Te vom contacta blablabla.
+        </div>
+    </div>
+
+    <mat-menu #popup="matMenu" [hasBackdrop]="true" [overlapTrigger]="true" class="popup" backdropClass="backdrop">
+        <form class="stacked-form" [formGroup]="newsletterForm" (click)="$event.stopPropagation()">
+            <input #emailInput class="mb-30" placeholder="Email" formControlName="email"/>
+
+            <div class="mb-30 flex-col">
+                <div class="bold mb-10">
+                    Ce fel de oportunitati cauti?
+                </div>
+
+                <mat-checkbox *ngFor="let option of options"
+                              [checked]="option.checked" color="primary"
+                              (change)="option.checked = !option.checked">{{ option.displayName }}</mat-checkbox>
+
+                <div class="other-wrapper">
+                    <mat-checkbox [checked]="otherOption" (change)="otherOption = !otherOption" color="primary">
+                        Altceva
+                    </mat-checkbox>
+                    <input *ngIf="otherOption" class="other" formControlName="otherOption" placeholder="Ce?"/>
+                </div>
+            </div>
+
+            <app-button [small]="true" (action)="submit()" [loading]="loading" label="Trimite"
+                        [disabled]="newsletterForm.invalid"></app-button>
+        </form>
+    </mat-menu>
+</div>
