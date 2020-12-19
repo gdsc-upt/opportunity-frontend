@@ -28,7 +28,8 @@
 .form-submitted {
     display: flex;
     align-items: center;
-    height: 45px;
+    min-height: 45px;
+    height: fit-content;
 
     mat-icon {
         color: $purple-1;
