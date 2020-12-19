@@ -6,6 +6,7 @@ on:
 
 jobs:
   build:
+    id: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,12 +24,19 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Build and push to GitHub Packages
         uses: docker/build-push-action@v2
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
         with:
           secrets: GIT_AUTH_TOKEN=${{ secrets.CR_PAT }}
           push: true
-          tags: ghcr.io/dsc-upt/opportunity-frontend-${{ GITHUB_REF##*/ }}:latest
+          tags: ghcr.io/dsc-upt/opportunity-frontend-$BRANCH:latest
 
   deploy:
     needs: build
@@ -36,8 +44,10 @@ jobs:
     steps:
       - name: Pull & run image on server
         uses: appleboy/ssh-action@master
+        env:
+          BRANCH: ${{ jobs.build.steps.extract_branch.outputs.branch }}
         with:
           host: timis.tech
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend-${{ GITHUB_REF##*/ }}
+          script: sudo /opt/deploy/_deploy.sh /home/docker/opportunity-frontend-$BRANCH
