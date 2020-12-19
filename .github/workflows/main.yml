@@ -29,10 +29,6 @@ jobs:
       - name: Build
         run: npm run build:ssr --unsafe-perm
 
-  push:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
