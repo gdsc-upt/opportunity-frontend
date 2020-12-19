@@ -1,24 +1,20 @@
 <div class="row">
-    <div class="col1">
-        <div class="contact1">Contactează-ne!</div>
-        <div class="contact2">Ai vreo întrebare despre platformă? Vrei să iei legătura cu noi?</div>
-        <div class="contact3">Completează formularul sau scrie-ne direct la <strong>contact@opportunity.ro</strong> sau
-            pe <strong>Facebook!</strong></div>
+    <div class="col-6">
+        <div class="heading title-margin">Contactează-ne!</div>
+        <div class="description">Ai vreo întrebare despre platformă? Vrei să iei legătura cu noi?</div>
+        <div class="description">Completează formularul sau scrie-ne direct la <b>contact@opportunity.ro</b> sau
+            pe <b>Facebook!</b></div>
     </div>
-    <div class="col2">
 
+    <form class="col-6">
         <label for="name" hidden></label>
-        <input class="input_field" id="name" #lastName placeholder="Nume" type="text"/>
+        <input class="input-margin" id="name" #lastName placeholder="Nume" type="text"/>
         <label for="email" hidden></label>
-        <input id="email" class="input_field" #firstName placeholder="Email" type="text"/>
+        <input id="email" class="input-margin" #firstName placeholder="Email" type="text"/>
         <label for="subject" hidden></label>
-        <input id="subject" class="input_field" #email placeholder="Subiect" type="text"/>
+        <input id="subject" class="input-margin" #email placeholder="Subiect" type="text"/>
         <label for="message" hidden></label>
-        <textarea class="message" id="message" #message placeholder="Mesaj"></textarea>
-        <button class="buttonCenter" (click)="onSubmit(lastName,firstName,email,message)">Trimite mesaj</button>
-
-    </div>
-    <div>
-
-    </div>
+        <textarea id="message" #message placeholder="Mesaj"></textarea>
+        <button class="contact-button" (click)="onSubmit(lastName,firstName,email,message)">Trimite mesaj</button>
+    </form>
 </div>

@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactInterface } from './ContactInterface';
 
 @Component({
     selector: 'app-contact',
     templateUrl: './contact.component.html',
-    styleUrls: ['./contact.component.scss']
+    styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
-    InputData: ContactInterface = {
+    InputData = {
         lastName: '',
         firstName: '',
         email: '',
-        message: ''
+        message: '',
     };
 
     onSubmit(...values): void {
@@ -22,10 +21,7 @@ export class ContactComponent implements OnInit {
         console.log(this.InputData);
     }
 
-    constructor() {
-    }
+    constructor() {}
 
-    ngOnInit(): void {
-    }
-
+    ngOnInit(): void {}
 }
