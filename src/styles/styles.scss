@@ -16,12 +16,17 @@ body {
     font-size: 14px;
     color: $dark-1;
     height: 100%;
+    margin: 0;
 }
 
 body {
-    padding: 0 calc(100vw / 12);
+    padding: 80px calc(100vw / 12) 0;
 }
 
 section {
     margin-top: 70px;
+}
+
+* {
+    outline: none;
 }

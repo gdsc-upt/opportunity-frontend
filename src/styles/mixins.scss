@@ -8,6 +8,10 @@
     background: linear-gradient(120deg, $gray-1, $white);
 }
 
-@mixin shadow {
-    box-shadow: 0 13px 27px 0 rgba(116, 49, 215, 0.25), 0 13px 27px 0 rgba(116, 49, 215, 0.25);
+@mixin purple-shadow-l {
+    box-shadow: 0 7px 21px 0 rgba($purple-1, 0.25), 0 7px 21px 0 rgba($purple-1, 0.25);
+}
+
+@mixin dark-shadow-s {
+    box-shadow: 0 10px 15px -3px rgba($dark-1, 0.1), 0 4px 6px -2px rgba($dark-1, 0.05);
 }
