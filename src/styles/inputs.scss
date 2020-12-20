@@ -1,38 +1,38 @@
 @import 'variables.scss';
 
+input {
+    height: 45px;
+
+    &.other {
+        font-size: 14px;
+        height: 30px;
+        min-height: 30px;
+        padding: 0 5px;
+        border: none;
+        border-bottom: 1px solid $gray-2;
+        border-radius: 0;
+    }
+}
+
+textarea {
+    padding-top: 10px;
+    resize: none;
+}
+
 input, textarea {
     font-family: Nunito, sans-serif;
     font-size: 16px;
     color: $dark-1;
+    box-sizing: border-box;
     min-height: 45px;
     padding: 0 15px;
     border: 1px solid $gray-2;
     border-radius: 4px;
     outline: none;
-    box-sizing: border-box;
 
     &:focus {
         border: 1px solid rgba($dark-1, 0.6);
     }
-}
-
-input {
-    height: 45px;
-
-    &.other {
-        border: none;
-        border-radius: 0;
-        border-bottom: 1px solid $gray-2;
-        font-size: 14px;
-        min-height: 30px;
-        height: 30px;
-        padding: 0 5px;
-    }
-}
-
-textarea {
-    resize: none;
-    padding-top: 10px;
 }
 
 mat-checkbox label {

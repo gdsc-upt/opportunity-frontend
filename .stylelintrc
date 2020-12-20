@@ -1,55 +1,37 @@
 {
-  "extends": "stylelint-config-recommended-scss",
+  "extends": [
+    "stylelint-config-recommended-scss"
+  ],
   "plugins": [
-    "stylelint-order"
+    "stylelint-order",
+    "stylelint-scss"
   ],
   "rules": {
-    "indentation": 4,
-    "string-quotes": "single",
-    "no-duplicate-selectors": true,
+    "at-rule-name-case": "lower",
+    "at-rule-name-space-after": "always",
+    "at-rule-no-vendor-prefix": true,
+    "at-rule-semicolon-space-before": "never",
+    "block-no-empty": true,
     "color-hex-case": "upper",
     "color-hex-length": "short",
     "color-named": "always-where-possible",
-    "selector-combinator-space-after": "always",
-    "selector-attribute-quotes": "always",
-    "selector-attribute-operator-space-before": "never",
-    "selector-attribute-operator-space-after": "never",
-    "selector-attribute-brackets-space-inside": "never",
-    "declaration-block-trailing-semicolon": "always",
-    "declaration-colon-space-before": "never",
-    "declaration-colon-space-after": "always",
-    "property-no-vendor-prefix": true,
-    "value-no-vendor-prefix": true,
-    "number-leading-zero": "always",
-    "function-url-quotes": "always",
-    "font-family-name-quotes": "always-where-recommended",
-    "comment-whitespace-inside": "always",
     "comment-empty-line-before": "always",
-    "at-rule-no-vendor-prefix": true,
-    "at-rule-name-case": "lower",
-    "at-rule-name-space-after": "always",
-    "at-rule-semicolon-space-before": "never",
-    "rule-empty-line-before": [
-      "always-multi-line",
-      {
-        "except": [
-          "after-single-line-comment",
-          "first-nested"
-        ]
-      }
-    ],
-    "selector-pseudo-class-parentheses-space-inside": "always",
-    "selector-no-vendor-prefix": true,
-    "media-feature-range-operator-space-before": "always",
-    "media-feature-range-operator-space-after": "always",
-    "media-feature-parentheses-space-inside": "never",
-    "media-feature-name-no-vendor-prefix": true,
-    "media-feature-colon-space-before": "never",
-    "media-feature-colon-space-after": "always",
-    "value-list-max-empty-lines": 0,
+    "comment-whitespace-inside": "always",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
     "declaration-empty-line-before": "never",
-    "block-no-empty": true,
-    "shorthand-property-no-redundant-values": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "function-url-quotes": "always",
+    "indentation": 4,
+    "media-feature-colon-space-after": "always",
+    "media-feature-colon-space-before": "never",
+    "media-feature-name-no-vendor-prefix": true,
+    "media-feature-parentheses-space-inside": "never",
+    "media-feature-range-operator-space-after": "always",
+    "media-feature-range-operator-space-before": "always",
+    "no-duplicate-selectors": true,
+    "number-leading-zero": "always",
     "order/order": [
       "custom-properties",
       "dollar-variables",
@@ -223,6 +205,43 @@
       "background-origin",
       "background-size",
       "box-decoration-break"
-    ]
+    ],
+    "property-no-vendor-prefix": true,
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        "except": [
+          "after-single-line-comment",
+          "first-nested"
+        ]
+      }
+    ],
+    "selector-attribute-brackets-space-inside": "never",
+    "selector-attribute-operator-space-after": "never",
+    "selector-attribute-operator-space-before": "never",
+    "selector-attribute-quotes": "always",
+    "selector-combinator-space-after": "always",
+    "selector-no-vendor-prefix": true,
+    "selector-pseudo-class-parentheses-space-inside": "always",
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": [
+          "/^::/"
+        ]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": [
+          "/^mat-/"
+        ]
+      }
+    ],
+    "shorthand-property-no-redundant-values": true,
+    "string-quotes": "single",
+    "value-list-max-empty-lines": 0,
+    "value-no-vendor-prefix": true
   }
 }

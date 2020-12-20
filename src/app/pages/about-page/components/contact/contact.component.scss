@@ -1,9 +1,9 @@
 @import 'styles/styles';
 
 .gradient-bg {
+    @include purple-orange-gradient;
     display: flex;
     border-radius: 10px;
-    @include purple-orange-gradient;
 
     > div {
         margin: 50px;
