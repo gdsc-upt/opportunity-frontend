@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+
+    > * {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    img {
+        max-width: calc(100vw / 3);
+        margin-right: calc(100vw / 12);
+    }
+
+    button {
+        text-transform: uppercase;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .wrapper {
+        flex-direction: column;
+
+        img {
+            display: none;
+        }
+
+        div {
+            text-align: center;
+            align-items: center;
+            align-self: center;
+            max-width: calc(100vh / 12 * 8);
+        }
+    }
+}
