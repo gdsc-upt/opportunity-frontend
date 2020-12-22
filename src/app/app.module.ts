@@ -7,6 +7,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { BannerComponent } from './pages/about-page/components/banner/banner.component';
 import { TeamComponent } from './pages/about-page/components/team/team.component';
 import { AboutComponent } from './pages/about-page/components/about/about.component';
+import { FooterComponent } from './pages/about-page/components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AddOpportunityPageComponent } from './pages/add-opportunity-page/add-opportunity-page.component';
 import { OpportunitiesListPageComponent } from './pages/opportunities-list-page/opportunities-list-page.component';
@@ -20,6 +21,8 @@ import { NewsletterComponent } from './pages/about-page/components/newsletter/ne
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ContactComponent } from './pages/about-page/components/contact/contact.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const routes = [
     {
@@ -57,6 +60,7 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         TeamComponent,
         BannerComponent,
         AboutComponent,
+        FooterComponent,
         AddOpportunityPageComponent,
         OpportunitiesListPageComponent,
         OpportunityPageComponent,
@@ -65,16 +69,19 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         ContactComponent,
     ],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        BrowserModule.withServerTransition({appId: 'serverApp'}),
         RouterModule.forRoot(routes),
         SharedModule,
         CoreModule,
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
+        HttpClientModule,
+
         ...matImports,
     ],
     providers: [],
     bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}
