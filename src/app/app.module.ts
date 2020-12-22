@@ -7,6 +7,7 @@ import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { BannerComponent } from './pages/about-page/components/banner/banner.component';
 import { TeamComponent } from './pages/about-page/components/team/team.component';
 import { AboutComponent } from './pages/about-page/components/about/about.component';
+import {FooterComponent} from './pages/about-page/components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AddOpportunityPageComponent } from './pages/add-opportunity-page/add-opportunity-page.component';
 import { OpportunitiesListPageComponent } from './pages/opportunities-list-page/opportunities-list-page.component';
@@ -57,6 +58,7 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         TeamComponent,
         BannerComponent,
         AboutComponent,
+        FooterComponent,
         AddOpportunityPageComponent,
         OpportunitiesListPageComponent,
         OpportunityPageComponent,
