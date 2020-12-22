@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItemsService } from '@core/services/menu-items.service';
+import { MenuModel } from '@shared/models/menu.model';
+
 
 @Component({
     selector: 'app-menu',
@@ -7,30 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
     public hasShadow = false;
+    public menuItems: MenuModel[];
 
-    public menuItems = [
-        {
-            id: 2,
-            name: 'Despre',
-            route: '',
-        },
-        {
-            id: 3,
-            name: 'Oportunități',
-            route: '/oportunitati',
-        },
-        {
-            id: 4,
-            name: 'Adaugă oportunitate',
-            route: '/adauga-oportunitate',
-            type: 'button',
-        },
-    ];
-
-    public constructor() {}
+    public constructor(private menuItemsService: MenuItemsService) {
+        this.getMenuItems();
+    }
 
     public ngOnInit(): void {
         window.addEventListener('scroll', () => this.setMenuShadow(), true);
+    }
+
+    getMenuItems(): void {
+        this.menuItemsService.getAll().then(
+            menuItems => {
+                this.menuItems = menuItems;
+            });
     }
 
     public setMenuShadow(): void {

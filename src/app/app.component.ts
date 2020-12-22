@@ -7,9 +7,10 @@ import { FaqService } from './core/services/faq.service';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    public constructor(public faqService: FaqService) {}
+    public constructor(public faqService: FaqService) {
+    }
 
     public async ngOnInit() {
-        const faqs = await this.faqService.getAll();
+
     }
 }
