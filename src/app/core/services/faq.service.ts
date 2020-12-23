@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { GenericService } from './generic.service';
-import { FaqModel } from '../../shared/models/faq.model';
+import { FaqModel } from '@shared/models/faq.model';
 
 @Injectable({
     providedIn: 'root',
