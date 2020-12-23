@@ -6,34 +6,35 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+    public hasShadow = false;
+
     public menuItems = [
-        {
-            id: 1,
-            name: 'OpportUNITY',
-            route: '',
-            type: 'InternalLink',
-        },
         {
             id: 2,
             name: 'Despre',
             route: '',
-            type: 'InternalLink',
         },
         {
             id: 3,
-            name: 'Oportunitati',
+            name: 'Oportunități',
             route: '/oportunitati',
-            type: 'InternalLink',
         },
         {
             id: 4,
-            name: 'Adauga oportunitate',
+            name: 'Adaugă oportunitate',
             route: '/adauga-oportunitate',
-            type: 'InternalLink',
+            type: 'button',
         },
     ];
 
     public constructor() {}
 
-    public ngOnInit(): void {}
+    public ngOnInit(): void {
+        window.addEventListener('scroll', () => this.setMenuShadow(), true);
+    }
+
+    public setMenuShadow(): void {
+        const scrollPosition = window.scrollY;
+        this.hasShadow = scrollPosition > 20;
+    }
 }

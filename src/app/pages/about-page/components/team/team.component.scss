@@ -1,4 +1,4 @@
-@import 'styles/styles';
+@import 'styles/variables';
 
 .team {
     display: flex;
@@ -71,6 +71,3 @@ img {
     color: $purple-1;
 }
 
-.component {
-    padding-bottom: 150px;
-}

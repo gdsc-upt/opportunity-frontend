@@ -1,5 +1,20 @@
 @import 'variables.scss';
 
+input, textarea {
+    font-family: Nunito, sans-serif;
+    font-size: 16px;
+    color: $dark-1;
+    box-sizing: border-box;
+    min-height: 45px;
+    padding: 0 15px;
+    border: 1px solid $gray-2;
+    border-radius: 4px;
+
+    &:focus {
+        border: 1px solid rgba($dark-1, 0.6);
+    }
+}
+
 input {
     height: 45px;
 
@@ -17,22 +32,6 @@ input {
 textarea {
     padding-top: 10px;
     resize: none;
-}
-
-input, textarea {
-    font-family: Nunito, sans-serif;
-    font-size: 16px;
-    color: $dark-1;
-    box-sizing: border-box;
-    min-height: 45px;
-    padding: 0 15px;
-    border: 1px solid $gray-2;
-    border-radius: 4px;
-    outline: none;
-
-    &:focus {
-        border: 1px solid rgba($dark-1, 0.6);
-    }
 }
 
 mat-checkbox label {

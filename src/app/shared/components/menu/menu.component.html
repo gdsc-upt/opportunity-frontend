@@ -1,13 +1,11 @@
-<nav class="sidebar">
-    <ul>
-        <li *ngFor="let item of menuItems">
-            <a *ngIf="item.type === 'ExternalLink'" href="{{ item.route }}">
-                {{ item.name }}
-            </a>
+<nav [class.has-shadow]="hasShadow">
+    <div class="logo" [routerLink]="''">OPPORTUNITY</div>
 
-            <a *ngIf="item.type === 'InternalLink'" [routerLink]="item.route" [routerLinkActive]="['active']">
-                {{ item.name }}
-            </a>
-        </li>
-    </ul>
+    <div>
+        <ng-container *ngFor="let item of menuItems">
+            <div *ngIf="item.type !== 'button'" [routerLink]="item.route" class="nav-link"
+                 [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"> {{ item.name }}</div>
+            <app-button *ngIf="item.type === 'button'" [small]="true" [label]="item.name"></app-button>
+        </ng-container>
+    </div>
 </nav>

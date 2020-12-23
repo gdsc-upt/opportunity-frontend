@@ -1,70 +1,56 @@
-html {
-    min-height: 100%;
-    background-image: linear-gradient(to right top, #8E44AD 0%, #3498DB 100%);
-}
+@import 'styles/variables';
+@import 'styles/mixins';
 
 nav {
-    max-width: 1000px;
-    mask-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        #FFF 25%,
-        #FFF 75%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    margin: 0 auto;
-}
-
-nav ul {
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.2) 25%,
-        rgba(255, 255, 255, 0.2) 75%,
-        rgba(255, 255, 255, 0) 100%
-    );
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
+    font-family: Inter, sans-serif;
     font-size: 15px;
-    color: rgba(0, 35, 122, 0.5);
-    text-decoration: none;
-    display: block;
-    padding: 18px;
-}
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 80px;
+    margin-left: calc(-100vw / 12);
+    padding: 0 calc(100vw / 12);
+    transition: box-shadow 0.5s;
 
-nav ul li a:hover {
-    color: rgba(0, 35, 122, 0.7);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-@media screen and (max-width: 700px) {
-    .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
+    .logo {
+        font-size: 22px;
+        font-weight: 700;
+        color: $purple-1;
+        cursor: pointer;
     }
 
-    .sidebar a {
-        float: left;
+    .nav-link {
+        color: $purple-1;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        cursor: pointer;
+        transition: transform 0.5s;
+
+        &.active {
+            font-weight: 600;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
     }
 
-    div.content {
-        margin-left: 0;
-    }
-}
+    > div {
+        display: flex;
+        align-items: center;
 
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-    .sidebar a {
-        text-align: center;
-        float: none;
+        > *:not( :last-child ) {
+            margin-right: 40px;
+        }
+    }
+
+    &.has-shadow {
+        @include dark-shadow-s;
+        background-color: $white;
     }
 }
