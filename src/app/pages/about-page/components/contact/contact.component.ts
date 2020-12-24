@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ContactService } from '@core/services/contact.service';
 
 @Component({
     selector: 'app-contact',
@@ -11,7 +12,7 @@ export class ContactComponent implements OnInit {
     public loading = false;
     public formSubmitted = false;
 
-    public constructor(private _formBuilder: FormBuilder) {
+    public constructor(private _formBuilder: FormBuilder, private contactService: ContactService) {
         this.contactForm = this._formBuilder.group({
             name: [''],
             email: [''],
@@ -22,13 +23,18 @@ export class ContactComponent implements OnInit {
 
     public ngOnInit(): void {}
 
-    public submit(): void {
+    public async submit() {
         this.loading = true;
-
-        setTimeout(() => {
-            console.log(this.contactForm.getRawValue());
-            this.loading = false;
-            this.formSubmitted = true;
-        }, 1000);
+        this.contactService
+            .post(this.contactForm.getRawValue())
+            .then((res) => {
+                this.loading = false;
+                this.formSubmitted = true;
+            })
+            .catch((err) => {
+                console.log(err);
+                this.loading = false;
+                this.formSubmitted = false;
+            });
     }
 }

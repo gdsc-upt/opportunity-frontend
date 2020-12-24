@@ -1,5 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
-import { Model } from '../../shared/models/base.model';
+import { Model } from '@shared/models/base.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,13 +14,20 @@ export abstract class GenericService<T extends Model> {
         this.http = injector.get(HttpClient);
     }
 
+    private get url() {
+        return `${this.apiUrl}${this.modelName}/`;
+    }
+
     public async getOne(slug: string): Promise<T> {
-        const url = `${this.apiUrl}${this.modelName}/${slug}/`;
+        const url = `${this.url}/${slug}/`;
         return await this.http.get<T>(url).toPromise();
     }
 
     public async getAll(): Promise<T[]> {
-        const url = `${this.apiUrl}${this.modelName}/`;
-        return await this.http.get<T[]>(url).toPromise();
+        return await this.http.get<T[]>(this.url).toPromise();
+    }
+
+    public async post(payload: T): Promise<T> {
+        return await this.http.post<T>(this.url, payload).toPromise();
     }
 }
