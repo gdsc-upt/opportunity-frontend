@@ -48,6 +48,7 @@ const routes = [
         path: 'adauga-oportunitate',
         component: AddOpportunityPageComponent,
     },
+    { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 ];
 
 const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
