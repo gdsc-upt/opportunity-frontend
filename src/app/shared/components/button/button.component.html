@@ -1,4 +1,5 @@
 <button [class.small]="small" (click)="action.emit()" [disabled]="disabled || loading" [class.full-width]="fullWidth">
     <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
+    <mat-icon *ngIf="matIcon">{{ matIcon }}</mat-icon>
     {{ label }}
 </button>
