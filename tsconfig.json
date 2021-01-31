@@ -20,8 +20,29 @@
       "@core/*": [
         "app/core/*"
       ],
+      "@services/*": [
+        "app/core/services/*"
+      ],
+      "@interceptors/*": [
+        "app/core/interceptors/*"
+      ],
+      "@guards/*": [
+        "app/core/guards/*"
+      ],
       "@shared/*": [
         "app/shared/*"
+      ],
+      "@models/*": [
+        "app/shared/models/*"
+      ],
+      "@components/*": [
+        "app/shared/components/*"
+      ],
+      "@admin/*": [
+        "app/admin/*"
+      ],
+      "@auth/*": [
+        "app/auth/*"
       ],
       "@assets/*": [
         "assets/*"

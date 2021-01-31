@@ -9,22 +9,22 @@ import {
     RefreshTokenRequestData,
     RefreshTokenResponseData,
     RegisterRequestData,
-} from '../models/auth-models';
+} from '@shared/models/auth-models';
 
-const OAUTH_CLIENT = 'express-client';
-const OAUTH_SECRET = 'express-secret';
 const API_URL = '/api/auth/';
-const HTTP_OPTIONS = {
-    headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization: 'Bearer ' + btoa(OAUTH_CLIENT + ':' + OAUTH_SECRET),
-    }),
-};
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
+    public redirectUrl: string;
+    private httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: 'Bearer ' + this.tokenService.token,
+        }),
+    };
+
     constructor(private http: HttpClient, private tokenService: TokenService) {}
 
     private static _handleError(error: HttpErrorResponse) {
@@ -45,7 +45,7 @@ export class AuthService {
         this.tokenService.removeRefreshToken();
         const body = new HttpParams().set('email', data.email).set('password', data.password);
 
-        return this.http.post<LoginResponseData>(API_URL + 'login/', body, HTTP_OPTIONS).pipe(
+        return this.http.post<LoginResponseData>(API_URL + 'login/', body).pipe(
             tap((res) => {
                 this.tokenService.token = res.access_token;
                 this.tokenService.refreshToken = res.refresh_token;
@@ -58,7 +58,7 @@ export class AuthService {
         this.tokenService.removeToken();
         this.tokenService.removeRefreshToken();
         const body = new HttpParams().set('refresh', data.refresh);
-        return this.http.post<RefreshTokenResponseData>(API_URL + 'token/refresh/', body, HTTP_OPTIONS).pipe(
+        return this.http.post<RefreshTokenResponseData>(API_URL + 'token/refresh/', body, this.httpOptions).pipe(
             tap((res) => {
                 this.tokenService.token = res.access;
                 this.tokenService.refreshToken = res.access;

@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ContactComponent } from './pages/about-page/components/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from '@guards/auth.guard';
 
 const routes = [
     {
@@ -45,10 +46,11 @@ const routes = [
         component: HelpPageComponent,
     },
     {
-        path: 'adauga-oportunitate',
-        component: AddOpportunityPageComponent,
+        path: 'admin',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule),
     },
-    { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+    { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
 ];
 
 const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];

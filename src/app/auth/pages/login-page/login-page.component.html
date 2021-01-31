@@ -1,0 +1,48 @@
+<div class="auth-container">
+    <div *ngIf="isLoading">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+    <mat-card>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <h2>Log In</h2>
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input
+                    matInput
+                    placeholder="Email"
+                    title="Email"
+                    formControlName="email"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('email').valid && form.get('email').touched">Please enter email</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input
+                    type="password"
+                    matInput
+                    placeholder="Password"
+                    title="Password"
+                    formControlName="password"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('password').valid && form.get('password').touched"
+                        >Please enter Password</span>
+                </mat-error>
+            </mat-form-field>
+            <app-button
+                [disabled]="!form.valid"
+                [small]="true"
+                [loading]="isLoading"
+                label="Login"
+                matIcon="login"
+                (action)="onSubmit()"
+            ></app-button>
+            <h4>Don't have an account?</h4>
+            <app-button [small]="true" label="Register" matIcon="how_to_reg" (action)="goToRegister()"></app-button>
+        </form>
+    </mat-card>
+</div>

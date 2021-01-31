@@ -1,0 +1,102 @@
+<div class="auth-container">
+    <div *ngIf="isLoading">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </div>
+    <mat-card>
+        <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+            <h2>Register</h2>
+            <mat-form-field class="full-width">
+                <mat-label>First name</mat-label>
+                <input
+                    matInput
+                    placeholder="First name"
+                    title="First name"
+                    formControlName="first_name"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('first_name').valid && form.get('first_name').touched"
+                        >Please enter your first name</span
+                    >
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Last name</mat-label>
+                <input
+                    matInput
+                    placeholder="Last name"
+                    title="Last name"
+                    formControlName="last_name"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('last_name').valid && form.get('last_name').touched"
+                        >Please enter your last name</span
+                    >
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+
+                <input
+                    matInput
+                    placeholder="Email"
+                    title="Email"
+                    type="email"
+                    formControlName="email"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('email').valid && form.get('email').touched">Please enter email</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input
+                    type="password"
+                    matInput
+                    placeholder="Password"
+                    title="Password"
+                    formControlName="password1"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('password1').valid && form.get('password1').touched"
+                        >Please enter Password</span
+                    >
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Confirm password</mat-label>
+                <input
+                    type="password"
+                    matInput
+                    placeholder="Confirm password"
+                    title="Confirm password"
+                    formControlName="password2"
+                    [errorStateMatcher]="matcher"
+                />
+                <mat-error>
+                    <span *ngIf="!form.get('password2').valid && form.get('password2').touched"
+                        >Please enter password confirmation</span
+                    >
+                </mat-error>
+            </mat-form-field>
+
+            <app-button
+                [disabled]="!form.valid"
+                [small]="true"
+                [loading]="isLoading"
+                label="Register"
+                matIcon="how_to_reg"
+                (action)="onFormSubmit()"
+            ></app-button>
+            <h4>Already registered?</h4>
+            <app-button [small]="true" label="Login" matIcon="login" (action)="goToLogin()"></app-button>
+        </form>
+    </mat-card>
+</div>

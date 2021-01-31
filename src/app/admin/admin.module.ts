@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AuthInterceptor } from '@interceptors/auth.interceptor';
 
 const routes: Routes = [{ path: '', component: AdminComponent }];
 
