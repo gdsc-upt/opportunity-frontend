@@ -3,8 +3,12 @@
     justify-content: center;
     align-items: center;
     height: 22px;
-    padding: 3px 13px;
+    padding: 0 11px;
     border: 2px solid;
     border-radius: 25px;
+
+    p {
+        font-size: 12px;
+    }
 }
 
