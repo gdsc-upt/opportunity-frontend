@@ -1,11 +1,11 @@
 <div class="card">
     <img src="{{image}}">
-    <p class="title">{{title}}</p>
+    <p class="title semi-bold">{{title}}</p>
     <p class="organisation">{{organisation}}</p>
     <p class="description">{{description}}</p>
     <div class="line"></div>
     <div class="categories">
-        <div style="margin-right: 10px" *ngFor="let category of categories">
+        <div style="margin-right: 10px;" *ngFor="let category of categories">
             <app-chip [label]="category" [color]="'#3C91E6'"></app-chip>
         </div>
     </div>
