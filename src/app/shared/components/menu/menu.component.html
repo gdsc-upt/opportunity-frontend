@@ -3,13 +3,22 @@
 
     <div>
         <ng-container *ngFor="let item of menuItems">
-            <div *ngIf="item.type !== 'button'" [routerLink]="item.link" class="nav-link"
-                 [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"> {{ item.name }}</div>
+            <div
+                *ngIf="item.type !== 'button'"
+                [routerLink]="item.link"
+                class="nav-link"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+            >
+                {{ item.name }}
+            </div>
         </ng-container>
-        <app-button *ngIf="settings.menu_button && settings.menu_button_link"
-                    [small]="true"
-                    [label]="settings.menu_button"
-                    (action)="navigateToButtonLink()">
+        <app-button
+            *ngIf="settings.menuButton && settings.menuButtonLink"
+            [small]="true"
+            [label]="settings.menuButton"
+            (action)="navigateToButtonLink()"
+        >
         </app-button>
     </div>
 </nav>

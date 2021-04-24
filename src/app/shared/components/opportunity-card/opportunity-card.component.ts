@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-opportunity-card',
-  templateUrl: './opportunity-card.component.html',
-  styleUrls: ['./opportunity-card.component.scss'],
+    selector: 'app-opportunity-card',
+    templateUrl: './opportunity-card.component.html',
+    styleUrls: ['./opportunity-card.component.scss'],
 })
 export class OpportunityCardComponent {
-    @Input() public image: string;
-    @Input() public title: string;
-    @Input() public organisation: string;
-    @Input() public description: string;
-    @Input() public categories: string[];
+    @Input() image: string;
+    @Input() title: string;
+    @Input() color: string;
+    @Input() organisation: string;
+    @Input() description: string;
+    @Input() categories: string[];
 }

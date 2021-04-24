@@ -1,0 +1,9 @@
+<section class="wrapper">
+    <img src="assets/illustrations/landing-hero.svg" />
+    <div>
+        <div class="heading mb-30">{{ heading }}</div>
+        <div *ngIf="subHeading" class="subheading mb-60">{{ subHeading }}</div>
+
+        <button *ngIf="link" [routerLink]="link">{{ buttonText }}</button>
+    </div>
+</section>

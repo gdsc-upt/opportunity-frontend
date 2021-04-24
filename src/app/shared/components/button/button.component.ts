@@ -6,11 +6,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-    @Input() public small = false;
-    @Input() public disabled = false;
-    @Input() public fullWidth = false;
-    @Input() public loading = false;
-    @Input() public label: string;
-    @Input() public matIcon: string;
-    @Output() public action = new EventEmitter<any>();
+    @Input() small = false;
+    @Input() disabled = false;
+    @Input() fullWidth = false;
+    @Input() loading = false;
+    @Input() label: string;
+    @Input() matIcon: string;
+    @Output() action = new EventEmitter<any>();
 }

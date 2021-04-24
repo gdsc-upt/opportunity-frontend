@@ -1,7 +1,5 @@
 <div class="auth-container">
-    <div *ngIf="isLoading">
-        <mat-spinner *ngIf="isLoading"></mat-spinner>
-    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
     <mat-card>
         <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
             <h2>Register</h2>

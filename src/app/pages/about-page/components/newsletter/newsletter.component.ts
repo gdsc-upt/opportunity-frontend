@@ -11,31 +11,31 @@ export class NewsletterComponent implements OnInit {
     @ViewChild(MatMenuTrigger) private _popupTrigger: MatMenuTrigger;
     @ViewChild('emailInput') private _emailInput: ElementRef;
 
-    public options: { displayName: string; value: string; checked: boolean }[] = [
+    options: { displayName: string; value: string; checked: boolean }[] = [
         { displayName: 'Burse', checked: false, value: 'scholarships' },
         { displayName: 'Voluntariat', checked: false, value: 'volunteering' },
     ];
-    public otherOption = false;
-    public newsletterForm: FormGroup;
-    public formSubmitted = false;
-    public loading = false;
+    otherOption = false;
+    newsletterForm: FormGroup;
+    formSubmitted = false;
+    loading = false;
 
-    public constructor(private readonly _formBuilder: FormBuilder) {
+    constructor(private readonly _formBuilder: FormBuilder) {
         this.newsletterForm = this._formBuilder.group({
             email: ['', [Validators.email, Validators.required]],
             otherOption: [''],
         });
     }
 
-    public ngOnInit(): void {}
+    ngOnInit(): void {}
 
-    public popupOpened(): void {
+    popupOpened(): void {
         setTimeout(() => {
             this._emailInput.nativeElement.focus();
         }, 0);
     }
 
-    public submit(): void {
+    submit(): void {
         this.loading = true;
 
         const selectedOptions = this.options.filter((o) => o.checked).map((o) => o.value);

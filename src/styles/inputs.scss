@@ -1,6 +1,7 @@
 @import 'variables.scss';
 
-input, textarea {
+input,
+textarea {
     font-family: Nunito, sans-serif;
     font-size: 16px;
     color: $dark-1;
@@ -44,4 +45,3 @@ mat-checkbox label {
     display: flex;
     flex-direction: column;
 }
-

@@ -4,13 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from '@shared/shared.module';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
-import { BannerComponent } from './pages/about-page/components/banner/banner.component';
 import { TeamComponent } from './pages/about-page/components/team/team.component';
 import { AboutComponent } from './pages/about-page/components/about/about.component';
 import { FooterComponent } from './pages/about-page/components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AddOpportunityPageComponent } from './pages/add-opportunity-page/add-opportunity-page.component';
-import { OpportunitiesListPageComponent } from './pages/opportunities-list-page/opportunities-list-page.component';
+import { OpportunitiesPageComponent } from './pages/opportunities-page/opportunities-page.component';
 import { OpportunityPageComponent } from './pages/opportunity-page/opportunity-page.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +22,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ContactComponent } from './pages/about-page/components/contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '@guards/auth.guard';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 const routes = [
     {
@@ -31,7 +31,7 @@ const routes = [
     },
     {
         path: 'oportunitati',
-        component: OpportunitiesListPageComponent,
+        component: OpportunitiesPageComponent,
     },
     {
         path: 'oportunitati/:id',
@@ -60,11 +60,10 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         AppComponent,
         AboutPageComponent,
         TeamComponent,
-        BannerComponent,
         AboutComponent,
         FooterComponent,
         AddOpportunityPageComponent,
-        OpportunitiesListPageComponent,
+        OpportunitiesPageComponent,
         OpportunityPageComponent,
         HelpPageComponent,
         NewsletterComponent,
@@ -72,6 +71,7 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        TransferHttpCacheModule,
         RouterModule.forRoot(routes),
         SharedModule,
         CoreModule,

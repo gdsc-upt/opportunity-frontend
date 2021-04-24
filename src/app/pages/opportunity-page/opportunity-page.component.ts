@@ -7,9 +7,9 @@ import { ActivatedRoute } from '@angular/router';
     styleUrls: ['./opportunity-page.component.scss'],
 })
 export class OpportunityPageComponent {
-    public opportunityId: string;
+    opportunityId: string;
 
-    public constructor(private readonly _activatedRoute: ActivatedRoute) {
+    constructor(private readonly _activatedRoute: ActivatedRoute) {
         this._activatedRoute.params.subscribe((params) => {
             this.opportunityId = params.id;
         });

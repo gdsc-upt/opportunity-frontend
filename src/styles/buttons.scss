@@ -30,7 +30,7 @@ button {
         cursor: default;
     }
 
-    &:not( :disabled ):hover {
+    &:not(:disabled):hover {
         transform: translateY(-5px);
     }
 }

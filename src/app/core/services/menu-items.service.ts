@@ -6,9 +6,9 @@ import { MenuModel } from '@shared/models/menu.model';
     providedIn: 'root',
 })
 export class MenuItemsService extends GenericService<MenuModel> {
-    protected modelName = 'menu-items';
+    protected _modelName = 'menu-items';
 
-    public constructor(protected injector: Injector) {
-        super(injector);
+    constructor(protected _injector: Injector) {
+        super(_injector);
     }
 }

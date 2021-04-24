@@ -2,24 +2,28 @@
     <div>
         <div class="heading mb-40">Contactează-ne!</div>
         <div class="subheading mb-30">Ai vreo întrebare despre platformă? Vrei să iei legătura cu noi?</div>
-        <div class="subheading">Completează formularul sau scrie-ne direct la <b>contact@opportunity.ro</b> sau
-            pe <b>Facebook!</b></div>
+        <div class="subheading">
+            Completează formularul sau scrie-ne direct la <b>contact@opportunity.ro</b> sau pe <b>Facebook!</b>
+        </div>
     </div>
 
     <div>
         <form [formGroup]="contactForm">
-            <input formControlName="name" placeholder="Nume" type="text"/>
-            <input formControlName="email" placeholder="Email" type="text"/>
-            <input formControlName="subject" placeholder="Subiect" type="text"/>
+            <input formControlName="name" placeholder="Nume" type="text" />
+            <input formControlName="email" placeholder="Email" type="text" />
+            <input formControlName="subject" placeholder="Subiect" type="text" />
             <textarea formControlName="message" placeholder="Mesaj" rows="7"></textarea>
-            <app-button *ngIf="!formSubmitted" [small]="true" [fullWidth]="true" (action)="submit()"
-                        label="Trimite mesaj"
-                        [loading]="loading"></app-button>
+            <app-button
+                *ngIf="!formSubmitted"
+                [small]="true"
+                [fullWidth]="true"
+                (action)="submit()"
+                label="Trimite mesaj"
+                [loading]="loading"
+            ></app-button>
             <div class="form-submitted" *ngIf="formSubmitted">
                 <mat-icon>check_circle</mat-icon>
-                <div class="subheading semi-bold">
-                    Mulțumim! Vei primi un răspuns cât de curând.
-                </div>
+                <div class="subheading semi-bold">Mulțumim! Vei primi un răspuns cât de curând.</div>
             </div>
         </form>
     </div>

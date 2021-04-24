@@ -5,7 +5,7 @@ import {
     HttpEvent,
     HttpInterceptor,
     HttpErrorResponse,
-    HttpResponse,
+    HttpResponse
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
@@ -15,11 +15,15 @@ import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(private router: Router, private tokenService: TokenService, private authService: AuthService) {}
+    constructor(
+        private readonly _router: Router,
+        private readonly _tokenService: TokenService,
+        private readonly _authService: AuthService
+    ) {}
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        const token = this.tokenService.token;
-        const refreshToken = this.tokenService.refreshToken;
+        const token = this._tokenService.token;
+        const refreshToken = this._tokenService.refreshToken;
 
         if (token) {
             request = request.clone({
@@ -52,11 +56,11 @@ export class AuthInterceptor implements HttpInterceptor {
                 console.log(error.error.error);
                 if (error.status === 401) {
                     if (error.error.error === 'invalid_token') {
-                        this.authService.refreshToken({ refresh: refreshToken }).subscribe(() => {
+                        this._authService.refreshToken({ refresh: refreshToken }).subscribe(() => {
                             location.reload();
                         });
                     } else {
-                        this.router.navigate(['login']).then(() => console.log('redirect to login'));
+                        this._router.navigate(['login']).then(() => console.log('redirect to login'));
                     }
                 }
                 return throwError(error);

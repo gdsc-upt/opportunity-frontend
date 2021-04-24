@@ -8,23 +8,27 @@ import { TokenService } from '@services/token.service';
     providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-    constructor(private authService: AuthService, private tokenService: TokenService, private router: Router) {}
+    constructor(
+        private readonly _authService: AuthService,
+        private readonly _tokenService: TokenService,
+        private readonly _router: Router
+    ) {}
 
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
         const url: string = state.url;
-        return this.checkLogin(url);
+        return this._checkLogin(url);
     }
 
-    checkLogin(url: string): boolean {
-        if (this.tokenService.refreshToken) {
+    private _checkLogin(url: string): boolean {
+        if (this._tokenService.refreshToken) {
             return true;
         }
 
-        this.authService.redirectUrl = url;
+        this._authService.redirectUrl = url;
 
-        this.router.navigate(['/auth/login']).then(() => false);
+        this._router.navigate(['/auth/login']).then();
     }
 }

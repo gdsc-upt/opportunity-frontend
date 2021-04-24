@@ -5,11 +5,12 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root',
 })
 export class ContactService {
-    private readonly API_URL = '/api';
+    private readonly apiUrl = '/api';
 
-    public constructor(private readonly http: HttpClient) {}
+    constructor(private readonly _http: HttpClient) {
+    }
 
-    public async post(payload: Object) {
-        return await this.http.post<any>(`${this.API_URL}/contact/`, payload).toPromise();
+    async post(payload: Record<string, unknown>) {
+        return await this._http.post<any>(`${this.apiUrl}/contact/`, payload).toPromise();
     }
 }

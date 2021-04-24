@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-        const isSubmitted = form && form.submitted;
-        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-    }
-}
+import { CustomErrorStateMatcher } from '@core/utils/error-state-matcher';
 
 @Component({
     selector: 'app-register-page',
@@ -19,12 +12,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RegisterPageComponent implements OnInit {
     form: FormGroup;
     isLoading = false;
-    matcher = new MyErrorStateMatcher();
+    matcher = new CustomErrorStateMatcher();
 
-    constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) {}
+    constructor(
+        private readonly _authService: AuthService,
+        private readonly _router: Router,
+        private readonly _formBuilder: FormBuilder
+    ) {}
 
     ngOnInit(): void {
-        this.form = this.formBuilder.group({
+        this.form = this._formBuilder.group({
             email: [null, Validators.required],
             password1: [null, Validators.required],
             password2: [null, Validators.required],
@@ -35,7 +32,7 @@ export class RegisterPageComponent implements OnInit {
 
     onFormSubmit(): void {
         this.isLoading = true;
-        this.authService.register(this.form.value).subscribe(
+        this._authService.register(this.form.value).subscribe(
             () => {
                 this.isLoading = false;
                 this.goToLogin();
@@ -48,6 +45,6 @@ export class RegisterPageComponent implements OnInit {
     }
 
     goToLogin() {
-        this.router.navigate(['/auth/login']).then();
+        this._router.navigate(['/auth/login']).then();
     }
 }

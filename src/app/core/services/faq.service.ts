@@ -6,9 +6,9 @@ import { FaqModel } from '@shared/models/faq.model';
     providedIn: 'root',
 })
 export class FaqService extends GenericService<FaqModel> {
-    protected modelName = 'faqs';
+    protected readonly _modelName = 'faqs';
 
-    public constructor(protected injector: Injector) {
-        super(injector);
+    constructor(protected readonly _injector: Injector) {
+        super(_injector);
     }
 }

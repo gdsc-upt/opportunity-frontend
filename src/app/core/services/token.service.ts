@@ -11,12 +11,12 @@ export class TokenService {
         return localStorage.getItem(ACCESS_TOKEN);
     }
 
-    get refreshToken(): string {
-        return localStorage.getItem(REFRESH_TOKEN);
-    }
-
     set token(token: string) {
         localStorage.setItem(ACCESS_TOKEN, token);
+    }
+
+    get refreshToken(): string {
+        return localStorage.getItem(REFRESH_TOKEN);
     }
 
     set refreshToken(refreshToken: string) {

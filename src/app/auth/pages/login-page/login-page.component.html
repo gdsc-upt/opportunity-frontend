@@ -1,7 +1,5 @@
 <div class="auth-container">
-    <div *ngIf="isLoading">
-        <mat-spinner *ngIf="isLoading"></mat-spinner>
-    </div>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
     <mat-card>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <h2>Log In</h2>
@@ -30,7 +28,8 @@
                 />
                 <mat-error>
                     <span *ngIf="!form.get('password').valid && form.get('password').touched"
-                        >Please enter Password</span>
+                        >Please enter Password</span
+                    >
                 </mat-error>
             </mat-form-field>
             <app-button

@@ -8,11 +8,11 @@ import { ContactService } from '@core/services/contact.service';
     styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
-    public contactForm: FormGroup;
-    public loading = false;
-    public formSubmitted = false;
+    contactForm: FormGroup;
+    loading = false;
+    formSubmitted = false;
 
-    public constructor(private _formBuilder: FormBuilder, private contactService: ContactService) {
+    constructor(private _formBuilder: FormBuilder, private contactService: ContactService) {
         this.contactForm = this._formBuilder.group({
             name: [''],
             email: [''],
@@ -21,9 +21,9 @@ export class ContactComponent implements OnInit {
         });
     }
 
-    public ngOnInit(): void {}
+    ngOnInit(): void {}
 
-    public async submit() {
+    async submit() {
         this.loading = true;
         this.contactService
             .post(this.contactForm.getRawValue())

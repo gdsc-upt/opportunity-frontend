@@ -8,7 +8,7 @@ import {
     LoginResponseData,
     RefreshTokenRequestData,
     RefreshTokenResponseData,
-    RegisterRequestData,
+    RegisterRequestData
 } from '@shared/models/auth-models';
 
 const API_URL = '/api/auth/';
@@ -17,15 +17,15 @@ const API_URL = '/api/auth/';
     providedIn: 'root',
 })
 export class AuthService {
-    public redirectUrl: string;
-    private httpOptions = {
+    redirectUrl: string;
+    private _httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: 'Bearer ' + this.tokenService.token,
+            Authorization: 'Bearer ' + this._tokenService.token,
         }),
     };
 
-    constructor(private http: HttpClient, private tokenService: TokenService) {}
+    constructor(private readonly _http: HttpClient, private readonly _tokenService: TokenService) {}
 
     private static _handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
@@ -41,48 +41,48 @@ export class AuthService {
     }
 
     login(data: LoginRequestData): Observable<LoginResponseData> {
-        this.tokenService.removeToken();
-        this.tokenService.removeRefreshToken();
+        this._tokenService.removeToken();
+        this._tokenService.removeRefreshToken();
         const body = new HttpParams().set('email', data.email).set('password', data.password);
 
-        return this.http.post<LoginResponseData>(API_URL + 'login/', body).pipe(
+        return this._http.post<LoginResponseData>(API_URL + 'login/', body).pipe(
             tap((res) => {
-                this.tokenService.token = res.access_token;
-                this.tokenService.refreshToken = res.refresh_token;
+                this._tokenService.token = res.access_token;
+                this._tokenService.refreshToken = res.refresh_token;
             }),
             catchError(AuthService._handleError)
         );
     }
 
     refreshToken(data: RefreshTokenRequestData): Observable<RefreshTokenResponseData> {
-        this.tokenService.removeToken();
-        this.tokenService.removeRefreshToken();
+        this._tokenService.removeToken();
+        this._tokenService.removeRefreshToken();
         const body = new HttpParams().set('refresh', data.refresh);
-        return this.http.post<RefreshTokenResponseData>(API_URL + 'token/refresh/', body, this.httpOptions).pipe(
+        return this._http.post<RefreshTokenResponseData>(API_URL + 'token/refresh/', body, this._httpOptions).pipe(
             tap((res) => {
-                this.tokenService.token = res.access;
-                this.tokenService.refreshToken = res.access;
+                this._tokenService.token = res.access;
+                this._tokenService.refreshToken = res.access;
             }),
             catchError(AuthService._handleError)
         );
     }
 
     logout(): Observable<any> {
-        this.tokenService.removeToken();
-        this.tokenService.removeRefreshToken();
-        return this.http.post(API_URL + 'logout/', {});
+        this._tokenService.removeToken();
+        this._tokenService.removeRefreshToken();
+        return this._http.post(API_URL + 'logout/', {});
     }
 
-    register(data: any): Observable<RegisterRequestData> {
-        return this.http.post<RegisterRequestData>(API_URL + 'registration/', data).pipe(
+    register(data: RegisterRequestData): Observable<RegisterRequestData> {
+        return this._http.post<RegisterRequestData>(API_URL + 'registration/', data).pipe(
             tap(() => AuthService._log('register')),
             catchError(AuthService._handleError)
         );
     }
 
     verifyToken(): Observable<RefreshTokenResponseData> {
-        const body = { token: this.tokenService.token };
-        return this.http
+        const body = { token: this._tokenService.token };
+        return this._http
             .post<RefreshTokenResponseData>(API_URL + 'token/verify/', body)
             .pipe(catchError(AuthService._handleError));
     }

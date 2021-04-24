@@ -9,36 +9,36 @@ import { Router } from '@angular/router';
     styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
-    public hasShadow = false;
-    public menuItems: MenuModel[];
-    public settings = {
-        menu_button: 'Adaugă oportunitate!',
-        menu_button_link: '/',
+    hasShadow = false;
+    menuItems: MenuModel[];
+    settings = {
+        menuButton: 'Adaugă oportunitate!',
+        menuButtonLink: '/',
     };
 
-    public constructor(private menuItemsService: MenuItemsService, private router: Router) {
+    constructor(private readonly _menuItemsService: MenuItemsService, private readonly _router: Router) {
         this.getMenuItems();
     }
 
-    public ngOnInit(): void {
+    ngOnInit(): void {
         window.addEventListener('scroll', () => this.setMenuShadow(), true);
     }
 
-    public getMenuItems(): void {
-        this.menuItemsService.getAll().then((menuItems) => (this.menuItems = menuItems));
+    getMenuItems(): void {
+        this._menuItemsService.getAll().then((menuItems) => (this.menuItems = menuItems));
     }
 
-    public setMenuShadow(): void {
+    setMenuShadow(): void {
         const scrollPosition = window.scrollY;
         this.hasShadow = scrollPosition > 20;
     }
 
-    public async navigateToButtonLink() {
-        if (this.settings.menu_button_link.startsWith('http')) {
-            window.open(this.settings.menu_button_link, '_blank');
+    async navigateToButtonLink(): Promise<void> {
+        if (this.settings.menuButtonLink.startsWith('http')) {
+            window.open(this.settings.menuButtonLink, '_blank');
             return;
         }
 
-        await this.router.navigateByUrl(this.settings.menu_button_link);
+        await this._router.navigateByUrl(this.settings.menuButtonLink);
     }
 }

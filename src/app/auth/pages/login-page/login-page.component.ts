@@ -1,15 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorStateMatcher } from '@angular/material/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@services/auth.service';
 import { Router } from '@angular/router';
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-        const isSubmitted = form && form.submitted;
-        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-    }
-}
+import { CustomErrorStateMatcher } from '@core/utils/error-state-matcher';
 
 @Component({
     selector: 'app-login-page',
@@ -19,12 +12,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginPageComponent implements OnInit {
     form: FormGroup;
     isLoading = false;
-    matcher = new MyErrorStateMatcher();
+    matcher = new CustomErrorStateMatcher();
 
-    constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) {}
+    constructor(
+        private readonly _authService: AuthService,
+        private readonly _router: Router,
+        private readonly _formBuilder: FormBuilder
+    ) {}
 
     ngOnInit(): void {
-        this.form = this.formBuilder.group({
+        this.form = this._formBuilder.group({
             email: [null, Validators.required],
             password: [null, Validators.required],
         });
@@ -32,10 +29,10 @@ export class LoginPageComponent implements OnInit {
 
     onSubmit(): void {
         this.isLoading = true;
-        this.authService.login(this.form.value).subscribe(
+        this._authService.login(this.form.value).subscribe(
             () => {
                 this.isLoading = false;
-                this.router.navigate(['/admin']).then(() => console.log('You are secure now!'));
+                this._router.navigate(['/admin']).then(() => console.log('You are secure now!'));
             },
             (err: any) => {
                 console.log(err);
@@ -44,7 +41,7 @@ export class LoginPageComponent implements OnInit {
         );
     }
 
-    goToRegister(): void {
-        this.router.navigate(['/auth/register']).then();
+    async goToRegister(): Promise<void> {
+        await this._router.navigate(['/auth/register']);
     }
 }
