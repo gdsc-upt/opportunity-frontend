@@ -6,9 +6,7 @@ import { SharedModule } from '@shared/shared.module';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { TeamComponent } from './pages/about-page/components/team/team.component';
 import { AboutComponent } from './pages/about-page/components/about/about.component';
-import { FooterComponent } from './pages/about-page/components/footer/footer.component';
 import { RouterModule } from '@angular/router';
-import { AddOpportunityPageComponent } from './pages/add-opportunity-page/add-opportunity-page.component';
 import { OpportunitiesPageComponent } from './pages/opportunities-page/opportunities-page.component';
 import { OpportunityPageComponent } from './pages/opportunity-page/opportunity-page.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
@@ -17,12 +15,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { CoreModule } from '@core/core.module';
 import { NewsletterComponent } from './pages/about-page/components/newsletter/newsletter.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ContactComponent } from './pages/about-page/components/contact/contact.component';
-import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from '@guards/auth.guard';
 import { TransferHttpCacheModule } from '@nguniversal/common';
+import { LatestOpportunitiesComponent } from './pages/about-page/components/latest-opportunities/latest-opportunities.component';
+import { CategoriesComponent } from './pages/opportunities-page/components/categories/categories.component';
 
 const routes = [
     {
@@ -36,10 +35,6 @@ const routes = [
     {
         path: 'oportunitati/:id',
         component: OpportunityPageComponent,
-    },
-    {
-        path: 'adauga-oportunitate',
-        component: AddOpportunityPageComponent,
     },
     {
         path: 'ajut',
@@ -61,13 +56,13 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         AboutPageComponent,
         TeamComponent,
         AboutComponent,
-        FooterComponent,
-        AddOpportunityPageComponent,
         OpportunitiesPageComponent,
         OpportunityPageComponent,
         HelpPageComponent,
         NewsletterComponent,
         ContactComponent,
+        LatestOpportunitiesComponent,
+        CategoriesComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -77,8 +72,6 @@ const matImports = [MatIconModule, MatMenuModule, MatCheckboxModule];
         CoreModule,
         BrowserAnimationsModule,
         FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
 
         ...matImports,
     ],

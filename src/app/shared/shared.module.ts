@@ -9,13 +9,24 @@ import { OpportunityCardComponent } from '@components/opportunity-card/opportuni
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { BannerComponent } from '@components/banner/banner.component';
+import { OpportunitiesListComponent } from '@components/opportunities-list/opportunities-list.component';
+import { FooterComponent } from '@components/footer/footer.component';
 
-const components = [MenuComponent, ButtonComponent, ChipComponent, OpportunityCardComponent, BannerComponent];
+const components = [
+    MenuComponent,
+    ButtonComponent,
+    ChipComponent,
+    OpportunityCardComponent,
+    OpportunitiesListComponent,
+    BannerComponent,
+    FooterComponent,
+];
+
+const matImports = [MatProgressSpinnerModule, MatIconModule];
 
 @NgModule({
     declarations: [...components],
-    imports: [CommonModule, RouterModule, ReactiveFormsModule, MatProgressSpinnerModule, MatIconModule],
-    exports: [CommonModule, ReactiveFormsModule, MatProgressSpinnerModule, MatIconModule, ...components],
+    imports: [CommonModule, RouterModule, ReactiveFormsModule, ...matImports],
+    exports: [CommonModule, RouterModule, ReactiveFormsModule, ...matImports, ...components],
 })
-export class SharedModule {
-}
+export class SharedModule {}
